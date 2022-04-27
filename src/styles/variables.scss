@@ -1,0 +1,59 @@
+$dark-grey: #bdbdbd;
+$grey: #a3a3a3;
+$light-grey: #f3f3f3;
+$blue: #4b51ef;
+$green: #52cf4f;
+$disabled: #afafaf;
+
+$input-color: #d8d8d8;
+
+$font-size-large: 14px;
+$font-size-medium: 12px;
+$font-size-small: 11px;
+
+$font-family-basic: 'Roboto', sans-serif;
+
+$max-page-width: 665px;
+
+$border-radius-large: 8px;
+$border-radius-small: 5px;
+
+.container {
+  display: flex;
+  width: 100%;
+  padding: 19px 34px;
+  margin: 0 auto;
+}
+
+.pageContainer {
+  @extend .container;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.formElement {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+
+  > .inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  label {
+    min-width: 140px;
+  }
+
+  input:not([type='checkbox']),
+  select {
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: $border-radius-small;
+    min-height: 38px;
+    border: 1px solid $grey;
+  }
+}

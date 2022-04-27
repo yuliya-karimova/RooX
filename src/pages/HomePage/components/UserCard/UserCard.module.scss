@@ -1,0 +1,23 @@
+@import '../../../../styles/variables.scss';
+
+.cardWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  padding: 10px;
+  background-color: $light-grey;
+  border-radius: $border-radius-large;
+}
+
+.detailsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.link {
+  text-decoration: none;
+  font-size: $font-size-medium;
+}
