@@ -8,9 +8,7 @@ type PropsType = {
   value?: string;
   placeholder?: string;
   required?: boolean;
-  isEditing?: boolean;
-  width?: string;
-  height?: string;
+  isEditable?: boolean;
   name?: string;
 };
 
@@ -20,23 +18,26 @@ const TextInput = ({
   value = '',
   placeholder = '',
   required = false,
-  isEditing = false,
-  width = '100%',
-  height = '22px',
+  isEditable = false,
   name = '',
 }: PropsType) => {
+  const isValid = () => {
+    return value.length > 0;
+  };
+
   return (
     <label className={styles.label}>
       {label}
       <input
-        style={{ width, height }}
-        className={styles.input}
+        className={`${styles.input} ${isEditable ? styles['input_editable'] : ''} ${
+          isValid() ? '' : styles['input_error']
+        }`}
         onChange={onChange}
         type="text"
         value={value}
         placeholder={placeholder}
         required={required}
-        readOnly={!isEditing}
+        readOnly={!isEditable}
         name={name}
       />
     </label>

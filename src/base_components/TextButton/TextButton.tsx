@@ -6,7 +6,7 @@ type PropsType = {
   text: string;
   color?: 'blue' | 'grey' | 'green';
   isDisabled?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 };
 
 const TextButton = React.memo(function TextButton({

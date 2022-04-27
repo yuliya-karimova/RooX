@@ -8,9 +8,7 @@ type PropsType = {
   value?: string;
   placeholder?: string;
   required?: boolean;
-  isEditing?: boolean;
-  width?: string;
-  height?: string;
+  isEditable?: boolean;
   name?: string;
 };
 
@@ -20,22 +18,19 @@ const TextArea = ({
   value = '',
   placeholder = '',
   required = false,
-  isEditing = false,
-  width = '100%',
-  height = '22px',
+  isEditable = false,
   name = '',
 }: PropsType) => {
   return (
     <label className={styles.label}>
       {label}
       <textarea
-        style={{ width, height }}
         className={styles.textarea}
         onChange={onChange}
         value={value}
         placeholder={placeholder}
         required={required}
-        readOnly={!isEditing}
+        readOnly={!isEditable}
         name={name}
       />
     </label>

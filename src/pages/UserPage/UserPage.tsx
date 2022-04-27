@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import { getUser } from './helpers/getUser';
 import Loader from '../../components/Loader/Loader';
@@ -10,9 +11,10 @@ import styles from './UserPage.module.scss';
 const UserPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [userInfo, setUserInfo] = useState<UserType | null>(null);
+  const { id } = useParams();
 
   useEffect(() => {
-    getUser(setUserInfo, setIsLoading);
+    getUser(setUserInfo, setIsLoading, Number(id));
   }, []);
 
   return (
