@@ -29,3 +29,9 @@ export type UserType = {
   website: string;
   company: CompanyType;
 };
+
+export enum SortTypes {
+  default = 'default',
+  city = 'city',
+  company = 'company',
+}

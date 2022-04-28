@@ -6,7 +6,8 @@ type PropsType = {
   text: string;
   color?: 'blue' | 'grey' | 'green';
   isDisabled?: boolean;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+  name?: string;
 };
 
 const TextButton = React.memo(function TextButton({
@@ -14,13 +15,14 @@ const TextButton = React.memo(function TextButton({
   color = 'blue',
   isDisabled = false,
   onClick,
+  name,
 }: PropsType) {
   const classNames = `${styles.button} ${
     isDisabled ? styles['button_disabled'] : styles[`button_${color}`]
   }`;
 
   return (
-    <button className={classNames} disabled={isDisabled} onClick={onClick}>
+    <button className={classNames} disabled={isDisabled} onClick={onClick} name={name}>
       {text}
     </button>
   );

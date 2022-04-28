@@ -2,18 +2,22 @@ import React, { useEffect, useState } from 'react';
 
 import { getUserList } from './helpers/getUserList';
 import Loader from '../../components/Loader/Loader';
-import { UserType } from '../../globalTypes';
+import { SortTypes, UserType } from '../../globalTypes';
 import UserList from './components/UserList/UserList';
 
 import styles from './HomePage.module.scss';
 
-const HomePage = () => {
+type PropsType = {
+  sortType: SortTypes;
+};
+
+const HomePage = ({ sortType }: PropsType) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [userList, setUserList] = useState<UserType[]>([]);
 
   useEffect(() => {
-    getUserList(setUserList, setIsLoading);
-  }, []);
+    getUserList(setUserList, setIsLoading, sortType);
+  }, [sortType]);
 
   return (
     <div className="pageContainer" data-testid="home-page">
